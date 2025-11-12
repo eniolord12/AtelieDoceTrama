@@ -1,0 +1,391 @@
+/* Importa a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* --- Paleta de Cores (da logo) --- */
+:root {
+    --cor-fundo: #f8f5f9;
+    --cor-principal: #582c83;
+    --cor-secundaria: #a16dae;
+    --cor-destaque: #d8a0d0;
+    --cor-texto: #374151;
+    --cor-texto-claro: #4b5563;
+}
+
+/* --- Estilos Globais (Mobile-First) --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    /* Adicionado para layout do footer */
+    flex-direction: column;
+    /* Adicionado para layout do footer */
+}
+
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    flex-grow: 1;
+    /* Adicionado para layout do footer */
+}
+
+/* --- Cabeçalho (Mobile-First) --- */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 130px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    color: var(--cor-texto-claro);
+}
+
+/* --- ESTILO DO LINK DE VOLTAR --- */
+.header-nav {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    color: var(--cor-principal);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: rgba(88, 44, 131, 0.1);
+    text-decoration: underline;
+}
+
+/* --- Abas (Mobile-First) --- */
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #d1d5db;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: var(--cor-texto-claro);
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-button:hover {
+    border-bottom-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+}
+
+.tab-button.tab-active {
+    border-bottom-color: var(--cor-principal);
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+/* --- Galeria de Produtos (Mobile-First) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* --- Card do Produto (Mobile-First) --- */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 160px;
+    /* CORREÇÃO DA IMAGEM CORTADA */
+    object-fit: contain;
+    background-color: #f0f0f0;
+    /* Fundo para imagens 'contain' */
+    display: block;
+}
+
+.product-card-content {
+    padding: 0.75rem;
+}
+
+.product-card-content h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card-content p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+    margin-top: 0.25rem;
+}
+
+/* --- Modal (Mobile-First) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #888;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #000;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+.modal-description {
+    padding-top: 1rem;
+    text-align: left;
+}
+
+#modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+#modal-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+    margin-top: 0.5rem;
+}
+
+
+/* --- Ponto de Interrupção para Telas Maiores (Tablet > 768px) --- */
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    header h1 {
+        font-size: 2.25rem;
+    }
+
+    header p {
+        font-size: 1.125rem;
+    }
+
+    .tab-button {
+        padding: 1rem 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .product-card img {
+        height: 224px;
+        /* Altura maior para telas maiores */
+    }
+
+    .product-card-content {
+        padding: 1.25rem;
+    }
+
+    .product-card-content h3 {
+        font-size: 1.125rem;
+    }
+
+    .product-card-content p {
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    #modal-title {
+        font-size: 1.5rem;
+    }
+
+    #modal-price {
+        font-size: 1.25rem;
+    }
+}
+
+/* --- Ponto de Interrupção para Telas Grandes (Desktop > 1024px) --- */
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* --- ESTILOS DO RODAPÉ (Adicionados) --- */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    padding: 2.5rem 1rem;
+    margin-top: auto;
+    /* Empurra o rodapé para baixo */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-top {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.footer-top h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: #ffffff;
+}
+
+.footer-top p {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--cor-destaque);
+}
+
+.footer-line {
+    border: 0;
+    height: 1px;
+    background-color: var(--cor-secundaria);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    /* Mobile-first: empilhado */
+    gap: 1.5rem;
+}
+
+.footer-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--cor-fundo);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* --- Responsividade do Rodapé --- */
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        /* Lado a lado em telas maiores */
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        flex-basis: 30%;
+        /* Divide em 3 colunas */
+    }
+}

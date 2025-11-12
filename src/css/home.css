@@ -1,0 +1,202 @@
+/* Importa a fonte (opcional, mas recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Paleta de Cores da Logo */
+:root {
+    --cor-fundo: #f8f5f9;
+    --cor-principal: #582c83;
+    --cor-secundaria: #a16dae;
+    --cor-destaque: #d8a0d0;
+    --cor-texto: #374151;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    /* Removido padding do body */
+    display: flex;
+    flex-direction: column;
+    /* Organiza body e footer verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+main.hero-container {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    /* Ajusta a largura em telas pequenas */
+    margin: auto;
+    /* Centraliza o <main> verticalmente e horizontalmente */
+    /* Animação suave de entrada */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--cor-principal);
+    margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--cor-secundaria);
+    margin: 0 0 1.5rem 0;
+    font-weight: 400;
+}
+
+.intro-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.8rem 2.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -3px rgba(88, 44, 131, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #4a246d;
+    /* Tom mais escuro do roxo */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px -3px rgba(88, 44, 131, 0.6);
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    main.hero-container {
+        padding: 2rem 1.5rem;
+        width: calc(100% - 3rem);
+        /* Garante padding */
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* --- ESTILOS DO RODAPÉ --- */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    padding: 2.5rem 1rem;
+    margin-top: auto;
+    /* Empurra o rodapé para baixo */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-top {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.footer-top h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: #ffffff;
+}
+
+.footer-top p {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--cor-destaque);
+}
+
+.footer-line {
+    border: 0;
+    height: 1px;
+    background-color: var(--cor-secundaria);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    /* Mobile-first: empilhado */
+    gap: 1.5rem;
+}
+
+.footer-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--cor-fundo);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* --- Responsividade do Rodapé --- */
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        /* Lado a lado em telas maiores */
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        flex-basis: 30%;
+        /* Divide em 3 colunas */
+    }
+}
